@@ -431,9 +431,9 @@ Not loudly, not in grand gestures — but in a way that is steady, sincere, and 
     <img src="C:\Users\Aritra\Downloads\Birthday\GROWNUP_IMAGE.jpeg" class="img-border" alt="Grown Up">
   </div>
   <div class="transform-bottom">
-    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN1.jpeg" class="img-border" alt="">
-    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN2.jpeg" class="img-border" alt="">
-    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN3.jpg" class="img-border" alt="">
+    <img src="GROWN1.jpeg" class="img-border" alt="">
+    <img src="GROWN2.jpeg" class="img-border" alt="">
+    <img src="GROWN3.jpg" class="img-border" alt="">
   </div>
 </section>
 
@@ -549,43 +549,43 @@ Your partner and your home. ❤️
     <h2>Our Beautiful Memories 📸</h2>
     <div class="gallery">
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image1.jpg.jpg" alt="Memory 1">
+    <img src="image1.jpg.jpg" alt="Memory 1">
     <div class="caption">A smile I’ll always remember🌹</div>
 	<div class="caption"> 21/12/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image2.jpg.jpg" alt="Memory 2">
+    <img src="image2.jpg.jpg" alt="Memory 2">
     <div class="caption">Adventure curves memories🌙</div>
 	<div class="caption"> 01/10/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image3.jpg.jpeg" alt="Memory 3">
+    <img src="image3.jpg.jpeg" alt="Memory 3">
     <div class="caption">First time, you felt special 💖</div>
 <div class="caption"> 05/12/2024 </div>
 
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image4.jpg.jpeg" alt="Memory 4">
+    <img src="image4.jpg.jpeg" alt="Memory 4">
     <div class="caption">Frozen in time, warm forever ✨</div>
 <div class="caption"> 20/10/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image5.jpg.jpeg" alt="Memory 5">
+    <img src="image5.jpg.jpeg" alt="Memory 5">
     <div class="caption">Book & fair 🎀</div>
 <div class="caption"> 25/10/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image6.jpg.jpeg" alt="Memory 6">
+    <img src="image6.jpg.jpeg" alt="Memory 6">
     <div class="caption">You, being beautifully you 🌸</div>
 <div class="caption"> 01/11/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image7.jpg.jpeg" alt="Memory 7">
+    <img src="image7.jpg.jpeg" alt="Memory 7">
     <div class="caption">Diwali and late night walk 💞</div>
 <div class="caption"> 20/10/2025 </div>
   </div>
   <div class="gallery-item">
-    <img src="C:\Users\Aritra\Downloads\Birthday\image8.jpg.jpeg" alt="Memory 8">
+    <img src="image8.jpg.jpeg" alt="Memory 8">
     <div class="caption">Food & gossips 🌷</div>
 <div class="caption"> 05/11/2025 </div>
   </div>
@@ -607,7 +607,7 @@ align-items: left;
     </p>
 
     <div class="sister-images">
-      <img src="C:\Users\Aritra\Downloads\Birthday\Sister1.jpg" alt="Sister 1">
+      <img src="Sister1.jpg" alt="Sister 1">
     </div>
 
   </div>
