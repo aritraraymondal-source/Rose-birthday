@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe0ef, #f3e8ff);
+      color: #5a2a44;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Decorative corner elements */
+    .corner {
+      position: fixed;
+      width: 160px;
+      height: 160px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .top-left {
+      top: 0; left: 0;
+      background-image: url('rose_corner.png');
+    }
+    .top-right {
+      top: 0; right: 0;
+      background-image: url('moon_corner.png');
+    }
+    .bottom-left {
+      bottom: 0; left: 0;
+      background-image: url('ribbon_corner.png');
+    }
+    .bottom-right {
+      bottom: 0; right: 0;
+      background-image: url('glitter_corner.png');
+    }
+
+    /* Glitter overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(#ffd1eb 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.8rem;
+      color: #d63384;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 640px;
+    }
+
+    section {
+      padding: 90px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    section::before {
+      content: "🎀";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      opacity: 0.6;
+    }
+
+    section h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.7rem;
+      color: #c2186a;
+      margin-bottom: 35px;
+    }
+
+    .message {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      background: linear-gradient(135deg, #ffffff, #fff3f9);
+      padding: 40px;
+      border-radius: 35px;
+      border: 3px solid #ffd1e8;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      max-width: 1050px;
+      margin: auto;
+    }
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
+  width: 100%;
+  border-radius: 22px;
+  border: 4px solid #e63946;
+  box-shadow: 0 12px 28px rgba(230, 57, 70, 0.28);
+}
+    .gallery-item img:hover {
+      transform: scale(1.08) rotate(-1deg);
+    }
+    .caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.85;
+    }
+    .gallery img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: 35px;
+      border: 4px solid #ffe0f0;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      transition: transform 0.5s;
+    }
+    .gallery img:hover {
+      transform: scale(1.08) rotate(-1deg);
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #ff85b3, #ffb3d9);
+      color: white;
+      border: none;
+      border-radius: 40px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+
+    footer {
+      padding: 45px 20px;
+      background: linear-gradient(135deg, #ffd1eb, #ffe9f5);
+      text-align: center;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+  
+    .poem-album {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 20px;
+      justify-content: center;
+    }
+    .poem-card {
+      min-width: 280px;
+      max-width: 320px;
+      background: linear-gradient(135deg, #fff, #fff0f7);
+      border-radius: 35px;
+      padding: 30px;
+      cursor: pointer;
+      border: 3px solid #ffd1e8;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      transition: transform 0.4s;
+    }
+    .poem-card:hover {
+      transform: scale(1.05);
+    }
+    .poem-card h3 {
+      font-family: 'Pacifico', cursive;
+      color: #d63384;
+      margin-bottom: 15px;
+    }
+    .preview {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    .full-poem {
+      display: none;
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.8;
+      white-space: pre-line;
+      animation: fadeSlide 0.6s ease forwards;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile tuning */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.6rem;
+      }
+      header p {
+        font-size: 1.05rem;
+      }
+      section {
+        padding: 65px 16px;
+      }
+      .message {
+        padding: 28px;
+        border-radius: 28px;
+      }
+      .poem-album {
+        gap: 18px;
+        padding: 10px;
+      }
+      .poem-card {
+        min-width: 260px;
+        padding: 24px;
+      }
+      .gallery img {
+        height: 250px;
+      }
+    }
+  
+    .video-album {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .video-card {
+      max-width: 420px;
+      background: linear-gradient(135deg, #ffffff, #fff1f8);
+      padding: 25px;
+      border-radius: 35px;
+      border: 3px solid #ffd1e8;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 235px;
+      border-radius: 25px;
+    }
+    .video-note {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .video-card iframe {
+        height: 210px;
+      }
+    }
+/* SISTER SECTION */
+.sister-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.sister-images {
+  display: flex;
+  gap: 20px;
+}
+
+/* 🌸 SISTER IMAGE ADJUSTMENT */
+.sister-images img {
+  width: 92%;                 /* Slightly smaller */
+  margin-left: -8px;          /* Shift left */
+  border-radius: 22px;
+  border: 4px solid #e63946;
+  box-shadow: 0 12px 28px rgba(230, 57, 70, 0.28);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sister-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* 🌸 TRANSFORMATION SECTION FIX */
+section {
+  width: 100%;
+}
+
+/* Top row: childhood – text – grown-up */
+.transform-top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 1100px;
+border-radius: 26px;
+}
+
+/* Image sizing fix */
+.transform-top img {
+  width: 100%;
+  max-width: 260px;
+  max-height: 320px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 26px;
+border: 4px solid #e63946;
+
+  justify-self: center;
+}
+
+/* Text styling */
+.transform-text {
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* 🔴 TRANSFORMATION – BOTTOM IMAGES FIX */
+.transform-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  justify-items: center;
+  margin-top: 45px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transform-bottom img {
+  width: 100%;
+  max-width: 300px;     /* Bigger than before */
+  height: 380px;        /* Taller, balanced */
+  object-fit: cover;
+  border-radius: 26px;
+  border: 4px solid #e63946;   /* Red border */
+  box-shadow: 0 14px 32px rgba(230, 57, 70, 0.35);
+}
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <h1>Happy Birthday, Rose 🌹🎀</h1>
+    <p>Today is for you, Rose —
+for the comfort you bring,
+the quiet strength you hold,
+and the magic that exists simply because you do.
+
+May this day remind you
+of how deeply you are cherished. 🌷✨🎀</p>
+    <button class="btn" onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">Open Your Surprise 💖</button>
+  </header>
+
+  <!-- MESSAGE SECTION -->
+  <section id="message">
+    <h2>A Little Message for You</h2>
+    <div class="message">
+      <p>
+        On your special day, Rose, I just want you to know how deeply loved you are 🌹
+Not loudly, not in grand gestures — but in a way that is steady, sincere, and always present.
+      </p>
+      <p>
+        You carry so much strength within you — the kind that stays quiet, feels deeply, and endures without asking to be seen. I know you often hold your battles close, choosing silence over noise, and courage over comfort. More than anything, my wish is to be someone you never have to be strong around — someone who stands beside you gently, supports you without pressure, and reminds you that you don’t have to carry everything alone. ✨🎀
+      </p>
+      <p>
+        May this year bring you soft smiles, glittering dreams, and moments that feel like warm hugs.
+        You deserve a world as gentle and magical as you are. 💕
+      </p>
+    </div>
+  </section>
+<!-- 🌸 TRANSFORMATION SECTION (NEW) -->
+<section>
+
+  <h2>Your Beautiful Journey 🌷</h2>
+  <div class="transform-top">
+    <img src="C:\Users\Aritra\Downloads\Birthday\CHILDHOOD_IMAGE.jpeg" class="img-border" alt="Childhood">
+
+    <div class="transform-text">
+      From a little girl with quiet dreams in her eyes  
+      to the woman you are today — calm, strong, and beautifully self-made.
+
+      Life didn’t always treat you gently, yet you grew anyway.
+      You learned how to stand on your own, how to feel deeply without losing yourself,
+      and how to stay kind in a world that isn’t always soft.
+
+      On your birthday, this isn’t just a celebration of age —
+      it’s a celebration of everything you became without losing who you were.
+      And I admire that more than words can say. 🌸
+    </div>
+
+    <img src="C:\Users\Aritra\Downloads\Birthday\GROWNUP_IMAGE.jpeg" class="img-border" alt="Grown Up">
+  </div>
+  <div class="transform-bottom">
+    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN1.jpeg" class="img-border" alt="">
+    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN2.jpeg" class="img-border" alt="">
+    <img src="C:\Users\Aritra\Downloads\Birthday\GROWN3.jpg" class="img-border" alt="">
+  </div>
+</section>
+
+  <!-- POEMS SECTION -->
+  <section id="poems">
+    <h2>Three Little Poems 💌</h2>
+    <div class="poem-album">
+      
+      <div class="poem-card" onclick="togglePoem(this)">
+        <h3>Poem One 🌹</h3>
+        <p class="preview">Tere ishq mein fanaa ho jau...
+	<p class="preview">
+        <br>Click to read more 💖</p>
+        <div class="full-poem">
+Tere ishq mein fanaa ho jau,
+Girta hi jau aakhon ki husn mein.
+Khushboo ban ke teri saanson mein ghul jau,
+Tere khayalon ke aasmaan mein khil jau. ❤️
+
+Tere ishq mein ghar basa lu,
+Apna bana lu tujhe.
+Tere saath likhu main har kal apna,
+Zindagi banu teri har sukoon mein. ❤️
+
+Tere ishq mein barbaad ho jau,
+Agar na mile tu kabhi.
+Kisi ke saath zindagi kat lu,
+Phir bhi dil se na jaaye tu kabhi. ❤️
+
+Ab thama sa hai dil ka safar,
+Jab tera ehsaas hi sukoon hai. ❤️
+</div>
+      </div>
+
+      <div class="poem-card" onclick="togglePoem(this)">
+        <h3>Poem Two 🌙</h3>
+        <p class="preview">In every prayer of mine...
+	<p class="preview">
+        <br>Click to read more 💖</p>
+        <div class="full-poem">
+In every prayer of mine,
+I seek your presence, pure, divine.
+In every devotion, deep and true,
+My heart bows only to you.
+
+I wish you’d stay, not drift away,
+I wish you'd choose me, come what may.
+I wish you'd trust the heart you see,
+And shape me into who I dream to be.
+
+In my dreams, I see us near,
+Hand in hand, with love sincere.
+To rest my head when nights grow colder,
+Upon your safe and steadfast shoulder. ❤️
+</div>
+      </div>
+
+      <div class="poem-card" onclick="togglePoem(this)">
+        <h3>Poem Three 🎀</h3>
+        <p class="preview">For all your worries...
+	<p class="preview">
+        <br>Click to read more 💖</p>
+        <div class="full-poem">
+For all your worries
+Let me carry it,
+Devour it, before it
+Tends to destroy you. ❤️
+
+For all your sorrows
+Let me hold it,
+Fill it with joy,
+And spread it in you. ❤️
+
+For all your overthinking
+Let me be your solution,
+Let me be the calm,
+In the chaos of your mind. ❤️
+
+Let me be your safe space,
+Where you don’t have the compulsion,
+Of that fake smile and fake compassion.
+
+Let me be your man,
+Your partner and your home. ❤️
+</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIDEO MEMORIES SECTION -->
+  <section id="videos">
+    <h2>Little Moving Memories 🎥</h2>
+    <div class="video-album">
+
+      <div class="video-card">
+        <!-- VIDEO 1 -->
+        <iframe src="https://drive.google.com/file/d/15SamEevqgV_QXVpoOMPqddRXa01Berik/preview" title="Video Memory 1" frameborder="0" allowfullscreen></iframe>
+        <p class="video-note">Its the eyes, where I melted and your elegance nailed it 💕</p>
+      </div>
+
+      <div class="video-card">
+        <!-- VIDEO 2 -->
+        <iframe src="https://drive.google.com/file/d/1vKcbGDjULCGh04nDJ1SZevQ4b5n42iUv/preview" title="Video Memory 2" frameborder="0" allowfullscreen></iframe>
+        <p class="video-note">The quiet character, but your beauty draws me closer 🌙</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section>
+    <h2>Our Beautiful Memories 📸</h2>
+    <div class="gallery">
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image1.jpg.jpg" alt="Memory 1">
+    <div class="caption">A smile I’ll always remember🌹</div>
+	<div class="caption"> 21/12/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image2.jpg.jpg" alt="Memory 2">
+    <div class="caption">Adventure curves memories🌙</div>
+	<div class="caption"> 01/10/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image3.jpg.jpeg" alt="Memory 3">
+    <div class="caption">First time, you felt special 💖</div>
+<div class="caption"> 05/12/2024 </div>
+
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image4.jpg.jpeg" alt="Memory 4">
+    <div class="caption">Frozen in time, warm forever ✨</div>
+<div class="caption"> 20/10/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image5.jpg.jpeg" alt="Memory 5">
+    <div class="caption">Book & fair 🎀</div>
+<div class="caption"> 25/10/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image6.jpg.jpeg" alt="Memory 6">
+    <div class="caption">You, being beautifully you 🌸</div>
+<div class="caption"> 01/11/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image7.jpg.jpeg" alt="Memory 7">
+    <div class="caption">Diwali and late night walk 💞</div>
+<div class="caption"> 20/10/2025 </div>
+  </div>
+  <div class="gallery-item">
+    <img src="C:\Users\Aritra\Downloads\Birthday\image8.jpg.jpeg" alt="Memory 8">
+    <div class="caption">Food & gossips 🌷</div>
+<div class="caption"> 05/11/2025 </div>
+  </div>
+</div>
+  </section>
+<!-- SISTER SECTION -->
+<section class="section-box">
+  <h2>For Your Sister 💖</h2>
+
+  <div class="sister-container">
+
+    <p>
+      And there’s something truly beautiful about the way you love your little Moon 🌙.
+      The bond you share with her, the warmth, the protectiveness, and the pure affection —
+      it makes your heart shine even brighter. I hope today you feel that same love coming
+      back to you, multiplied and glowing. ✨🎀
+align-items: left;
+
+    </p>
+
+    <div class="sister-images">
+      <img src="C:\Users\Aritra\Downloads\Birthday\Sister1.jpg" alt="Sister 1">
+    </div>
+
+  </div>
+</section>
+
+    <!-- LOVE PROPOSAL SECTION -->
+  <section id="proposal">
+    <h2>One Last Question 💖</h2>
+    <div class="message">
+      <p>After all the smiles, memories, and moments we share… I just want to ask you one thing.</p>
+      <p style="font-size:1.3rem; font-weight:600;">Will you grow old together? year after year after year ? 💍✨</p>
+      <div style="margin-top:30px;">
+        <button class="btn" onclick="acceptLove()">Yes 💕</button>
+        <button class="btn" style="background:#ff5c8a; margin-left:15px;" onclick="rejectLove()">No 🙈</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPUP MESSAGE -->
+  <div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,182,213,0.9); z-index:999; justify-content:center; align-items:center;">
+    <div style="background:white; padding:40px; border-radius:25px; max-width:500px; text-align:center; box-shadow:0 15px 30px rgba(0,0,0,0.2);">
+      <h2 style="font-family:'Pacifico', cursive; color:#d63384;">She Said YES! 🎉💖</h2>
+      <p style="font-size:1.1rem; line-height:1.8; margin-top:20px;">
+        You’ve just made me the happiest person alive. Thank you for choosing me, for trusting me,
+        and for letting our story grow even more beautiful from here. 🌸✨
+      </p>
+      <p style="margin-top:15px; font-weight:600;">I promise to stay together, even after long fights always. 💕</p>
+      <button class="btn" style="margin-top:25px;" onclick="closePopup()">Close 💞</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Made with 💖 just for you | Happy Birthday 🎂
+  </footer>
+
+  <script>
+    function acceptLove() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function rejectLove() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  
+    function togglePoem(card) {
+      const poem = card.querySelector('.full-poem');
+      if (poem.style.display === 'block') {
+        poem.style.display = 'none';
+      } else {
+        poem.style.display = 'block';
+        poem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } {
+      const poem = card.querySelector('.full-poem');
+      poem.style.display = poem.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
